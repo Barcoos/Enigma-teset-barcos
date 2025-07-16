@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Boa sorte</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: monospace;
+    }
+    #botaoInicial {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 40px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+    }
+    #mensagem {
+      color: red;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: none;
+      max-width: 600px;
+    }
+    #link {
+      position: absolute;
+      top: 80px;
+      left: 10px;
+      display: none;
+    }
+    #respostaContainer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+    input[type="text"] {
+      padding: 8px;
+      font-size: 16px;
+    }
+    button#verificar {
+      padding: 8px 16px;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <button id="botaoInicial">Clique Aqui</button>
+  <div id="mensagem">
+    Qá urxlf uzxro z xirkgltizurz mé, Xszg TKG? Wvxlwrurxzwli? Wvhxfyiv z kilcrnz .
+  </div>
+  <div id="link">
+    <a href="https://www.haaretz.com" target="_blank" style="color:rgb(253, 5, 5);">https://www.haaretz.com</a>
+  </div>
+  <div id="respostaContainer">
+    <input type="text" id="resposta" placeholder="Digite aqui"> 
+    <button id="verificar">OK</button>
+  </div>
+<script>
+const botao = document.getElementById('botaoInicial');
+const mensagem = document.getElementById('mensagem');
+const respostaContainer = document.getElementById('respostaContainer');
+const link = document.getElementById('link');
+const verificarBtn = document.getElementById('verificar');
+const inputResposta = document.getElementById('resposta');
+
+botao.addEventListener('click', () => {
+  botao.style.display = 'none';
+  mensagem.style.display = 'block';
+  respostaContainer.style.display = 'block';
+  link.style.display = 'block';
+});
+
+verificarBtn.addEventListener('click', () => {
+  const entrada = inputResposta.value.trim();
+  // Aqui não tem nada para você
+  const parte1 = String.fromCharCode(82); 
+  const parte2 = atob('aGl6');             
+  const parte3 = ['v','o'].join('');       
+
+  const respostaCerta = parte1 + parte2 + parte3; // Quer ir pelo caminho mais dificil?
+
+  if (entrada === respostaCerta) {
+    window.location.href = 'pagina2.html';
+  } else {
+    alert('Resposta incorreta. Tente novamente.');
+  }
+});
+</script>
+</body>
+</html>

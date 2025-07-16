@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Final</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: monospace;
+      background-color: black;
+      background-image: url('https://c4.wallpaperflare.com/wallpaper/344/502/426/anonymous-computer-hacker-legion-wallpaper-preview.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+    }
+    #binario {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      padding: 0 20px;
+      color: #00ff00;
+      font-size: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #respostaContainer {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    } 
+    #respostaContainer input { 
+      padding: 10px;
+      font-size: 18px;
+      width: 200px;
+    }
+    #respostaContainer button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+    #respostaContainer label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    #finalLink {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      background-color: black;
+      padding: 20px;
+      text-align: center;
+    }
+    #finalLink a {
+      color: #00ffcc;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="binario"> 
+    01001001 01101110 01100110 01100101 01110010 01101110 01101111 00100000 01100100 01100101 00100000 01100100 01100001 01101110 01110100 01100101
+  </div>
+  <div id="respostaContainer">
+    <label for="resposta">O que falta?</label>
+    <input type="text" id="resposta" placeholder="Digite aqui">
+    <button onclick="verificar()">OK</button>
+  </div>
+  <div id="finalLink">                
+    <p>Enigma concluído. <a href="https://youtu.be/tZzWdKc6-lI?si=f1Vc_-UODJM54vDV" target="_blank">Clique aqui</a></p>
+  </div>
+  <script>
+function verificar() { // Nada para você aqui
+  const entrada = document.getElementById('resposta').value.trim();
+  const k1 = String.fromCharCode(88); 
+  const k2 = unescape('%E9');         
+  const k3 = (() => 'f')();           
+
+  const partes = [k1, k2, k3];
+  const segredo = partes.join('');
+  // vai fuçando
+  if (entrada === segredo) {
+    document.body.style.backgroundImage = "none";
+    document.body.style.backgroundColor = "black";
+    document.getElementById('binario').style.display = 'none';
+    document.getElementById('respostaContainer').style.display = 'none';
+    document.getElementById('finalLink').style.display = 'block';
+  } else {
+    alert("Resposta incorreta.");
+  }
+}
+  </script>
+</body>
+</html>
